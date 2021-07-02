@@ -19,7 +19,13 @@ table {
 }
   
 td,th {
+    word-break:break-word;
     white-space: nowrap;
-    overflow: hidden;         /* <- this does seem to be required */
+    overflow: hidden;
     text-overflow: ellipsis;
+}
+
+td:hover{
+    cursor:pointer;
+    background:rgba(0, 0, 0, 0.05)
 }

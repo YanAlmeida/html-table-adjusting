@@ -1,4 +1,22 @@
 let RAW;
+let pages = 10;
+document.addEventListener('click', event => {
+    let target = event.target
+    if (target.tagName == "TD" && target.style.texOverflow != "visible"){
+        target.style.wordBreak ="break-word";
+        target.style.whiteSpace = "normal";
+        target.style.texOverflow = "visible";
+    }else if(target.tagName == "TD"){
+        target.style.wordBreak ="normal";
+        target.style.whiteSpace = "nowrap";
+        target.style.texOverflow = "ellipsis";
+    }
+})
+
+function setPageNumber(){
+    pages = document.getElementById("pageSet").value
+    showTable()
+}
 
 function requestFile(url){
     ajax = new XMLHttpRequest()
@@ -49,7 +67,7 @@ function showTable(){
     let tablebody=document.createElement("tbody")
     let rowheader = document.createElement("tr")
 
-    table.className="table table-dark"
+    table.className="table table-dark table-striped"
     table.appendChild(tableheader)
     table.appendChild(tablebody)
     tableheader.appendChild(rowheader)
@@ -68,8 +86,11 @@ function showTable(){
     })
 
     
+    if(pages>Object.keys(RAW[checkedboxes[0].value]).length){
+        pages = Object.keys(RAW[checkedboxes[0].value])
+    }
 
-    Object.keys(RAW[checkedboxes[0].value]).slice(0,15).forEach(item => {
+    Object.keys(RAW[checkedboxes[0].value]).slice(0,pages).forEach(item => {
         let tr = document.createElement("tr")
 
         checkedboxes.forEach(element => {
@@ -85,9 +106,24 @@ function showTable(){
         tablebody.appendChild(tr)
     })
 
+    paragraph = document.createElement("p")
+    span1 = document.createElement("span")
+    span2 = document.createElement("span")
+    input = document.createElement("input")
 
+    span1.innerText = "Pages being shown: "
+    span2.innerText = ` /${Object.keys(RAW[checkedboxes[0].value]).length}`
+
+    input.id = "pageSet"
+    input.value = pages
+    input.setAttribute("onchange", "setPageNumber()")
+
+    paragraph.appendChild(span1)
+    paragraph.appendChild(input)
+    paragraph.appendChild(span2)
 
     contentspace.innerHTML = table.outerHTML
+    contentspace.appendChild(paragraph)
 }
 
 function collapse(){
