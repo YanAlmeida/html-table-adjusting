@@ -111,7 +111,7 @@ function showTable(){
     span2 = document.createElement("span")
     input = document.createElement("input")
 
-    span1.innerText = "Pages being shown: "
+    span1.innerText = "Lines being shown: "
     span2.innerText = ` /${Object.keys(RAW[checkedboxes[0].value]).length}`
 
     input.id = "pageSet"
