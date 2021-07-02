@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- FontAwesome -->
+        <link href="{{ url_for('static', filename='css/fontsawesome/css/all.min.css') }}" rel="stylesheet">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+        <title>Test</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="d-flex flex-row justify-content-center">
+                <div class="align-self-start">
+                    <button id="initialBtn" class="btn btn-danger mt-2" onclick="requestFile('/retorno')">Clique Aqui</button>
+                </div>
+                <div id="content" class="align-self-center mt-2"></div>
+                <div class="align-self-start">
+                    <button id="btnCollapse" class="navbar-toggler mt-2" onclick="collapse()"><i class="fas fa-bars"></i></button>
+                    <div id="menu">
+                        <ul id="menuList" class="nav navbar-nav pl-3">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="{{ url_for('static', filename='js/jquery-3.3.1.slim.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/adjustments.js') }}"></script>
+    </body>
+</html>

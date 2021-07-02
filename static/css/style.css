@@ -1,0 +1,25 @@
+#menu{
+    display:none;
+    padding:2px;
+    background-color: #8aa9c9;
+    color: white;
+    position:absolute;
+    z-index:999;
+}
+
+#btnCollapse{
+    background-color:red;
+    border: 2px solid black;
+    display:none;
+}
+
+table {
+    table-layout: fixed;
+    width: 100px;
+}
+  
+td,th {
+    white-space: nowrap;
+    overflow: hidden;         /* <- this does seem to be required */
+    text-overflow: ellipsis;
+}
