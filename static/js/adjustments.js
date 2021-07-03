@@ -87,7 +87,7 @@ function showTable(){
 
     
     if(pages>Object.keys(RAW[checkedboxes[0].value]).length){
-        pages = Object.keys(RAW[checkedboxes[0].value])
+        pages = Object.keys(RAW[checkedboxes[0].value]).length
     }
 
     Object.keys(RAW[checkedboxes[0].value]).slice(0,pages).forEach(item => {
